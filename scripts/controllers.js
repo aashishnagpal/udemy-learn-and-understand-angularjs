@@ -9,11 +9,12 @@ app.controller('homeController', ['$scope', 'cityService', function ($scope, cit
   })
 }]);
 
-app.controller('forecastController', ['$scope', '$resource', '$routeParams', 'cityService', 'weatherFactory',
-  function ($scope, $resource, $routeParams, cityService, weatherFactory) {
+app.controller('forecastController', ['$scope', '$resource', '$routeParams', 'cityService', 'weatherFactory', '$log',
+  function ($scope, $resource, $routeParams, cityService, weatherFactory, $log) {
     $scope.city = cityService.city;
     $scope.days = $routeParams.days || '2';
     $scope.weatherResult = weatherFactory.getWeather($scope.days, $scope.city);
+    $log.info($scope.weatherResult);
     $scope.convertToFahrenheit = function (degK) {
       return Math.round((1.8 * (degK - 273)) + 32);
     };
