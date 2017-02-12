@@ -7,9 +7,9 @@ app.service('cityService', [function () {
   this.longitude = null;
 }]);
 
-app.factory('weatherFactory', ['$resource', '$log', function ($resource, $log) {
+app.factory('weatherFactory', ['$resource', '$sce', '$log', function ($resource, $sce, $log) {
 
-  var API_PATH = 'http://api.openweathermap.org/data/2.5/forecast/daily';
+  var API_PATH = $sce.getTrustedResourceUrl($sce.trustAsResourceUrl('http://api.openweathermap.org/data/2.5/forecast/daily'));
   var APP_ID = '089c7f3f5a9253c4eadba886da4e4f5c';
   var weatherResource = $resource(API_PATH, {appid: APP_ID}, {get: {method: "JSONP"}}
   );
