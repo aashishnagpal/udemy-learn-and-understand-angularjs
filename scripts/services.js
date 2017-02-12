@@ -23,6 +23,7 @@ app.factory('weatherFactory', function ($resource) {
         weatherParams.lon = longitude;
       }
       weatherParams.cnt = days;
+      weatherParams.appid = APP_ID;
 
       return weatherResource.get(weatherParams, function (successResult) {
         return successResult;
