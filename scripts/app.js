@@ -4,7 +4,12 @@
 'use strict';
 var app = angular.module('weatherApp', ['ngRoute', 'ngResource']);
 
-
+app.config(['$sceDelegateProvider', function ($sceDelegateProvider) {
+  $sceDelegateProvider.resourceUrlWhitelist([
+    'self',
+    'http://api.openweathermap.org/**'
+  ]);
+}]);
 
 
 

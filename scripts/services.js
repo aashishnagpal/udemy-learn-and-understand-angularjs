@@ -13,9 +13,9 @@ app.factory('weatherFactory', ['$resource', '$log', function ($resource, $log) {
   var APP_ID = '089c7f3f5a9253c4eadba886da4e4f5c';
   var weatherResource = $resource(API_PATH, {
         appid: APP_ID
-        , callback: "JSON_CALLBACK"
+        // , callback: "JSON_CALLBACK2"
       }
-      , {get: {method: "JSONP"}}
+      // , {get: {method: "JSONP"}}
   );
   $log.debug(API_PATH);
   $log.debug(APP_ID);
