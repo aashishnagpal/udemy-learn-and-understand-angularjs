@@ -11,11 +11,7 @@ app.factory('weatherFactory', ['$resource', '$log', function ($resource, $log) {
 
   var API_PATH = 'http://api.openweathermap.org/data/2.5/forecast/daily';
   var APP_ID = '089c7f3f5a9253c4eadba886da4e4f5c';
-  var weatherResource = $resource(API_PATH, {
-        appid: APP_ID
-        // , callback: "JSON_CALLBACK2"
-      }
-      // , {get: {method: "JSONP"}}
+  var weatherResource = $resource(API_PATH, {appid: APP_ID}, {get: {method: "JSONP"}}
   );
   $log.debug(API_PATH);
   $log.debug(APP_ID);
